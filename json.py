@@ -9586,6 +9586,7 @@ def getIdFromCode(codeFunction):
 
 parsed = []
 parsedStates = []
+parsedCities = []
 
 for b in range(len(states)):
     parsed.append('{"id":'+str(b)+',"name":"'+states[b].get('name')+'","cities" : {"')
@@ -9605,11 +9606,11 @@ fStates.close()
 
 
 for b in range(len(cities)):
-    parsedStates.append('{"id":'+str(b)+',"name":"'+cities[b].get('name')+'","state_id":'+str(getIdFromCode(cities[b].get('code')))+'},')
+    parsedCities.append('{"id":'+str(b)+',"name":"'+cities[b].get('name')+'","state_id":'+str(getIdFromCode(cities[b].get('code')))+'},')
 
 fCities = open("parsedJsonCitiesArg.txt","w")
 for b in range(len(cities)):
-    fCities.write(parsedStates[b])
+    fCities.write(parsedCities[b])
 fCities.close()
 
 f=open("parsedJsonStateCitiesArg.txt","w")
